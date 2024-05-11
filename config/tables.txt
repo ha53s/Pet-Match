@@ -1,0 +1,58 @@
+CREATE TABLE Users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(50) UNIQUE NOT NULL,
+    Password VARCHAR(255) NOT NULL,
+    Salt VARCHAR(255) not NULL,
+    Email VARCHAR(100) UNIQUE NOT NULL
+);
+
+CREATE TABLE Animals (
+    AnimalID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(100) NOT NULL,
+    Species VARCHAR(50) NOT NULL,
+    Breed VARCHAR(50),
+    Age VARCHAR(50),
+    Description TEXT,
+    ImageURL VARCHAR(255), 
+    Available BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE Admins (
+AdminID INT PRIMARY KEY AUTO_INCREMENT,
+Username VARCHAR(50) NOT NULL,
+Password VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE pet_reports (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    type_of_pet VARCHAR(100) NOT NULL,
+    description TEXT,
+    location VARCHAR(100) NOT NULL,
+    your_name VARCHAR(100) NOT NULL,
+    contact_number VARCHAR(12) NOT NULL,
+    has_injury TINYINT(1) NOT NULL,
+    injury_description TEXT,
+    report_date DATE NOT NULL,
+    report_time TIME NOT NULL
+);
+
+
+CREATE TABLE customer_reviews (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    review TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES Users(id)
+);
+
+
+
+
+Refrences : 
+for welcome page background effect : /*https://www.makeuseof.com/css-background-patterns-examples/ */
+
+extra stylesheets : https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css
+
+login + signup+ adopt+pet php code from : https://vle.iau.edu.sa/bbcswebdav/pid-6115555-dt-content-rid-110635923_1/courses/930062_14Jan2024_05136C_COMSC/CYS%20538%20-%20%20Lab%207.pdf
+
+footer : https://codepen.io/animationbro/pen/OJQEVEj
